@@ -1,19 +1,23 @@
-public class PalindromeCheckerApp {
+import java.util.Stack;
+
+public class PalindromeCheckerUC5 {
     public static void main(String[] args) {
-        String input = "radar"; // You can change this to test other strings
-        char[] chars = input.toCharArray(); // Convert string to character array
-        int start = 0;
-        int end = chars.length - 1;
+        String input = "Noon"; // We can change this to test other strings
+        Stack<Character> stack = new Stack<>();
+
+        // Push each character into the stack
+        for (char c : input.toCharArray()) {
+            stack.push(c);
+        }
+
         boolean isPalindrome = true;
 
-        // Two-pointer comparison
-        while (start < end) {
-            if (chars[start] != chars[end]) {
+        // Compare characters by popping from stack (reversed order)
+        for (char c : input.toCharArray()) {
+            if (c != stack.pop()) {
                 isPalindrome = false;
                 break;
             }
-            start++;
-            end--;
         }
 
         // Output result

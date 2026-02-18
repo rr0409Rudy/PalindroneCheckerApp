@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-public class PalindromeCheckerUC5 {
+public class PalindromeCheckerApp {
     public static void main(String[] args) {
         String input = "Noon"; // We can change this to test other strings
         Stack<Character> stack = new Stack<>();

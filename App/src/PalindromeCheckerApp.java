@@ -1,30 +1,32 @@
+import java.util.Queue;
+import java.util.LinkedList;
 import java.util.Stack;
 
-public class PalindromeCheckerUC5 {
+public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        String input = "Noon"; // We can change this to test other strings
-        Stack<Character> stack = new Stack<>();
+        String input = "civic";
 
-        // Push each character into the stack
+        Queue<Character> queue = new LinkedList<>();
+        Stack<Character> stack = new Stack<>();
         for (char c : input.toCharArray()) {
+            queue.add(c);
             stack.push(c);
         }
 
         boolean isPalindrome = true;
+        while (!queue.isEmpty()) {
+            char fromQueue = queue.remove();
+            char fromStack = stack.pop();
 
-        // Compare characters by popping from stack (reversed order)
-        for (char c : input.toCharArray()) {
-            if (c != stack.pop()) {
+            if (fromQueue != fromStack) {
                 isPalindrome = false;
                 break;
             }
         }
-
-        // Output result
         if (isPalindrome) {
             System.out.println(input + " is a palindrome.");
         } else {
-            System.out.println(input + " is not a palindrome.");
+            System.out.println(input + " is NOT a palindrome.");
         }
     }
 }

@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class UseCase13PalindromeCheckerApp {
+public class PalindromeCheckerApp {
     public static boolean isPalindrome(String input) {
         int start = 0;
         int end = input.length() - 1;
